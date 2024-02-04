@@ -1,6 +1,6 @@
 // Uses the same styles as Product
 import styles from "../css/Product.module.css";
-import Navbar from "../components/Navbar.tsx";
+import Navbar from "../components/Sections/Navbar.tsx";
 
 export default function Product() {
   return (
@@ -19,7 +19,10 @@ export default function Product() {
             voluptatem iste.
           </p>
         </div>
-        <img src="/assets/img-2.jpg" alt="overview of a large city with skyscrapers" />
+        <img
+          src="/assets/img-2.jpg"
+          alt="overview of a large city with skyscrapers"
+        />
       </section>
     </main>
   );

@@ -1,13 +1,9 @@
-import React, { FunctionComponent } from "react";
-import styles from "../css/PageNav.module.css";
+import { FunctionComponent } from "react";
+import styles from "../../css/PageNav.module.css";
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo.tsx";
+import Logo from "../Resusable/Logo.tsx";
 
-interface OwnProps {}
-
-type Props = OwnProps;
-
-const Navbar: FunctionComponent<Props> = (props) => {
+const Navbar: FunctionComponent = () => {
   const navItems = [
     {
       id: 1,

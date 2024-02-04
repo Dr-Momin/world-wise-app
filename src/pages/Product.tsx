@@ -1,5 +1,5 @@
 import styles from "../css/Product.module.css";
-import Navbar from "../components/Navbar.tsx";
+import Navbar from "../components/Sections/Navbar.tsx";
 
 export default function Product() {
   return (

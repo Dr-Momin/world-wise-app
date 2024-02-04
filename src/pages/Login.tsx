@@ -1,6 +1,6 @@
 import styles from "../css/Login.module.css";
-import {useState} from "react";
-import Navbar from "../components/Navbar.tsx";
+import { useState } from "react";
+import Navbar from "../components/Sections/Navbar.tsx";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES

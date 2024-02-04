@@ -1,4 +1,4 @@
-import styles from "../css/User.module.css";
+import styles from "../../css/User.module.css";
 
 const FAKE_USER = {
   name: "Jack",
