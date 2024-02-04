@@ -1,6 +1,7 @@
-import styles from "../css/Message.module.css";
+import styles from "../../css/Message.module.css";
 
-function Message({ message }) {
+function Message(props: Record<string, string>) {
+  const { message } = props;
   return (
     <p className={styles.message}>
       <span role="img">👋</span> {message}
