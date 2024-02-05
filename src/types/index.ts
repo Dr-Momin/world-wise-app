@@ -1,6 +1,6 @@
 export interface FetchType {
   loading: boolean;
-  data: Array<unknown> | Record<string, unknown>;
+  data: [] | Record<string, any> | unknown;
   error: string;
 }
 

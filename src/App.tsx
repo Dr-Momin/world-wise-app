@@ -6,7 +6,7 @@ import Login from "./pages/Login.tsx";
 import Pricing from "./pages/Pricing.tsx";
 import AppLayout from "./pages/AppLayout.tsx";
 import PageNotFound from "./pages/PageNotFound.tsx";
-import { CityList, CountryList } from "./components";
+import { City, CityList, CountryList } from "./components";
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path={"app"} element={<AppLayout />}>
           <Route index element={<Navigate to={"cities"} replace={true} />} />
           <Route path={"cities"} element={<CityList />} />
+          <Route path={"cities/:id"} element={<City />} />
           <Route path={"countries"} element={<CountryList />} />
         </Route>
         <Route path={"/login"} element={<Login />} />
