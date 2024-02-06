@@ -5,18 +5,21 @@ import { CitiesDataType } from "../../types";
 import { Spinner } from "../index.ts";
 import { formatDate } from "../../utils/utils.ts";
 import BackButton from "../Resusable/BackButton.tsx";
-
-const URL_CITIES = "/cities";
+import { CitiesContextType, useCities } from "../../context/CitiesProvider.tsx";
+import { useEffect } from "react";
 
 function City() {
   const { id } = useParams();
-  const { loading, data, error } = useFetchById(`${URL_CITIES}/${id}`);
+  const { getCurrentCity, currentCity, loading, error } =
+    useCities() as CitiesContextType;
 
-  if (loading) return <Spinner />;
+  useEffect(() => {
+    getCurrentCity(Number(id));
+  }, [id]);
 
   if (error) return <h1>{error}</h1>;
 
-  let currentCity = data as CitiesDataType;
+  if (loading) return <Spinner />;
 
   return (
     currentCity && (
