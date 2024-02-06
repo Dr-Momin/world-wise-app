@@ -1,17 +1,11 @@
 import { FunctionComponent } from "react";
-import { useFetchData } from "../../hooks/useFetch.tsx";
-import { CitiesDataType, FetchType } from "../../types";
 import { Spinner } from "../index.ts";
 import styles from "../../css/CityList.module.css";
 import CityItem from "./CityItem.tsx";
 import { v4 as uuidv4 } from "uuid";
-
-const URL_CITIES = "/cities";
-
+import { CitiesContextType, useCities } from "../../context/CitiesProvider.tsx";
 const CityList: FunctionComponent = () => {
-  const { loading, data, error } = useFetchData(URL_CITIES) as FetchType;
-
-  const cities = data as Array<CitiesDataType>;
+  const { loading, cities, error } = useCities() as CitiesContextType;
 
   if (error) {
     return <h1>{error}</h1>;

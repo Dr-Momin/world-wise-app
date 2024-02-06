@@ -4,6 +4,18 @@ export interface FetchType {
   error: string;
 }
 
+export interface CitiesFetchType {
+  loading: boolean;
+  data: Array<CitiesDataType>;
+  error: string;
+}
+
+export interface CurrentCityFetchType {
+  loading: boolean;
+  data: CitiesDataType;
+  error: string;
+}
+
 export interface CoordinateTypes {
   lat: number;
   lng: number;
