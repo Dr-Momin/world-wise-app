@@ -1,6 +1,18 @@
 export interface FetchType {
   loading: boolean;
-  data: Array<unknown> | Record<string, unknown>;
+  data: [] | Record<string, any> | unknown;
+  error: string;
+}
+
+export interface CitiesFetchType {
+  loading: boolean;
+  data: Array<CitiesDataType>;
+  error: string;
+}
+
+export interface CurrentCityFetchType {
+  loading: boolean;
+  data: CitiesDataType;
   error: string;
 }
 

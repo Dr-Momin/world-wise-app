@@ -1,26 +1,41 @@
 import { FunctionComponent } from "react";
-import useFetch from "../../hooks/useFetch.tsx";
+import { useFetchData } from "../../hooks/useFetch.tsx";
 import { CitiesDataType, FetchType } from "../../types";
-import { CountryItem, Spinner } from "../index.ts";
+import { CountryItem, Message, Spinner } from "../index.ts";
 import styles from "../../css/CountryList.module.css";
+import { v4 as uuidv4 } from "uuid";
 
 const URL_CITIES = "/cities";
 
 const CountryList: FunctionComponent = () => {
-  const { loading, data, error } = useFetch(URL_CITIES) as FetchType;
+  const { loading, data, error } = useFetchData(URL_CITIES) as FetchType;
 
   const cities = data as Array<CitiesDataType>;
+
+  if (loading) return <Spinner />;
 
   if (error) {
     return <h1>{error}</h1>;
   }
 
-  return loading ? (
-    <Spinner />
-  ) : (
+  if (!cities?.length)
+    return <Message message={"Add your first city on map"} />;
+
+  // Removing Duplicate Countries from Cities Array
+  // @ts-ignore
+  const countries: [] = cities?.reduce((arr, city) => {
+    // @ts-ignore
+    if (!arr.map((el) => el.country).includes(city.country)) {
+      return [...arr, { country: city.country, emoji: city.emoji }];
+    } else return arr;
+  }, []);
+
+  return (
     <ul className={styles.countryList}>
-      {cities &&
-        cities.map((city) => <CountryItem country={city} key={city.id} />)}
+      {countries &&
+        countries.map((country) => (
+          <CountryItem country={country} key={uuidv4()} />
+        ))}
     </ul>
   );
 };

@@ -11,10 +11,10 @@ interface OwnProps {
 type Props = OwnProps;
 
 const CityItem: FunctionComponent<Props> = ({ city }) => {
-  const { emoji, cityName, date } = city;
+  const { emoji, cityName, date, id } = city;
   return (
     <li>
-      <Link to={"/app/countries"} className={styles.cityItem}>
+      <Link to={`${id}`} className={styles.cityItem}>
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>

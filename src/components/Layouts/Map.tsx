@@ -1,11 +1,10 @@
 import { FunctionComponent } from "react";
 
-interface OwnProps {}
+// interface OwnProps {}
+//
+// type Props = OwnProps;
 
-type Props = OwnProps;
-
-const Map: FunctionComponent<Props> = (props) => {
-  console.log(props);
+const Map: FunctionComponent = () => {
   return <div>Map</div>;
 };
 
